@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OptionsPanel from '../OptionsPanel'
 import Board from '../Board'
-import { createTiles } from '../../misc/utils'
+import { createTiles, indexOfSelected } from '../../misc/utils'
 
 import './App.css';
 
@@ -38,8 +38,15 @@ class App extends Component{
       }
     </div>
   );
-
   }
+
+	handleTileClicked(id, color) {
+	    return this.setState((state) => ({
+	        toBeCleared: state.toBeCleared,
+	        tiles: state.tiles,
+	        selectedTileIndex: [tiles.id, tiles.color]
+	      }))
+	}
 }
 
 export default App;
